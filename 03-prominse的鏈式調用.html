@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('aaaa')
+    //   },1000)
+    // }).then(res => {
+    //   //1.自己處理十行代碼
+    //   console.log(res, '第一層的十行代碼')
+      
+    //   //2.對結果進行第一次處理
+    //   return new Promise((resolve) => {
+    //     resolve(res + '111')
+    //   })
+    // }).then(res => {
+    //   console.log(res, '第二層的十行代碼')
+
+    //   return new Promise((resolve) => {
+    //     resolve(res + '222')
+    //   })
+    // }).then(res => {
+    //   console.log(res, '第三層的十行代碼')
+    // })
+
+
+    //new Promise(resolve => resolve(結果))簡寫
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('aaaa')
+    //   },1000)
+    // }).then(res => {
+    //   //1.自己處理十行代碼
+    //   console.log(res, '第一層的十行代碼')
+      
+    //   //2.對結果進行第一次處理
+    //   return Promise.resolve(res + '111')
+    // }).then(res => {
+    //   console.log(res, '第二層的十行代碼')
+
+    //   return Promise.resolve(res + '222')
+    // }).then(res => {
+    //   console.log(res, '第三層的十行代碼')
+    // })
+
+    //省略promise.reslove
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve('aaaa')
+    //   },1000)
+    // }).then(res => {
+    //   //1.自己處理十行代碼
+    //   console.log(res, '第一層的十行代碼')
+      
+    //   //2.對結果進行第一次處理
+    //   return res + '111'
+    // }).then(res => {
+    //   console.log(res, '第二層的十行代碼')
+
+    //   return res + '222'
+    // }).then(res => {
+    //   console.log(res, '第三層的十行代碼')
+    // })
+
+    //報錯
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('aaaa')
+      },1000)
+    }).then(res => {
+      //1.自己處理十行代碼
+      console.log(res, '第一層的十行代碼')
+      
+      //2.對結果進行第一次處理
+      // return Promise.reject('error message')
+      throw('error message')
+    }).then(res => {
+      console.log(res, '第二層的十行代碼')
+
+      return Promise.resolve(res + '222')
+    }).then(res => {
+      console.log(res, '第三層的十行代碼')
+    }).catch(err => {
+      console.log(err)
+    })
+
+    
+    
+
+  </script>
+</body>
+</html>

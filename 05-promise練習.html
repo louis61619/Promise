@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('第一層')
+      }, 1000)
+    }).then((res) => {
+      console.log(res)
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(res + '第二層')
+        }, 1000)
+      })
+    }).then((res) => {
+      console.log(res)
+    })
+
+    // axios範例
+    // new Promise(function (resolve, reject) {
+    //   axios.get('/api/extensys/exten_action.php?act=get_userinfo&unionid=oaNquuJBYcTrl4EJOXYaINXN7xZo')
+    //     .then((response) => {
+    //       this.user = response.data.userInfo
+    //       this.id = response.data.loginResult.player.userid
+    //       resolve(this.id);
+    //     })
+    // })
+    //   .then(function (id) {
+    //     return axios.get('/api/extensys/action.php?act=get_levelinfo&userid=' + id) // 重要，注意添加了return
+    //   })
+    //   .then(response => void console.log(response))
+  </script>
+</body>
+
+</html>

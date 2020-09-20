@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //甚麼情況會用到promise
+    //一般情況下是有異步操作時，使用Promise對這個異步操作進行封裝
+    //new-> 構造函數(1.保存了一些狀態信息 2.執行傳入的函數)
+    //在執行傳入的回調函數時，會傳入兩個參數, resolve, reject,本身又是函數
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        //成功時調用resolve
+        // resolve('hello World')
+
+        //失敗時調用reject
+        reject('error message')
+      },1000)
+    }).then((data) => {
+      console.log(data);
+      console.log(data);
+      console.log(data);
+      console.log(data);
+      console.log(data);
+      console.log(data);
+
+      //再請求函數
+      // return new Promise((resolve, reject) => {})
+    }).catch((err) => {
+      console.log(err)
+    })
+  </script>
+</body>
+</html>
